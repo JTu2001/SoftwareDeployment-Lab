@@ -1,22 +1,104 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Sets the Storrage Account Name"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Sets the location"
+            }
+        },
+        "storageAccountSkuName": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "metadata": {
+                "description": "Sets the SKU Name"
+            }
+        },
+        "storageAccountSkuTier": {
+            "type": "string",
+            "defaultValue": "Standard",
+            "metadata": {
+                "description": "Sets the SKU Tier"
+            }
+        },
+        "serverFarmsName": {
+            "type": "string",
+            "metadata": {
+                "description": "Sets the name"
+            }
+        },
+        "serverFarmsSKU": {
+            "type": "string",
+            "defaultValue": "F1",
+            "metadata": {
+                "description": "Sets the Subscription Tier"
+            }
+        },
+        "serverFarmsOS": {
+            "type": "string",
+            "metadata": {
+                "description": "Sets the OS"
+            }
+        },
+        "webAppName": {
+            "type": "string",
+            "metadata": {
+                "description": "Sets the Web-App Name"
+            }
+        }
+    },
     "functions": [],
     "variables": {},
     "resources": [
         {
-            "name": "storageaccounttunjic",
+            "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2023-01-01",
             "tags": {
-                "displayName": "storageaccounttunjic"
+                "displayName": "[parameters('storageAccountName')]"
             },
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "kind": "StorageV2",
             "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
+                "name": "[parameters('storageAccountSkuName')]",
+                "tier": "[parameters('storageAccountSkuTier')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2021-02-01",
+            "name": "[parameters('serverFarmsName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "[parameters('serverFarmsSKU')]"
+            },
+            "kind": "[parameters('serverFarmsOS')]",
+            "properties": {
+                "reserved": true
+            }
+        },
+        {
+            "name": "[parameters('webAppName')]",
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2022-09-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/appServicePlan1')]": "Resource",
+                "displayName": "[parameters('webAppName')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverFarmsName'))]"
+            ],
+            "properties": {
+                "name": "[parameters('webAppName')]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverFarmsName'))]"
             }
         }
     ],
