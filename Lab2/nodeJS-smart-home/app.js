@@ -10,6 +10,8 @@ app.get('/getTemperature', (req, res) => {
     res.send('28,5°C');
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+module.exports = server;
