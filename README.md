@@ -8,3 +8,15 @@ Erstellung eines ARM Templates welches:
 - Parameters verwendet
 
 Abgabefrist: `13.10.2023`
+
+## Übung 2 - Pipelines
+Links zu einem Git Repo mit folgendem Inhalt im Ordner Lab2:
+- Die NodeJS applikation
+- eine README.md mit folgenden Informationen:
+- Links zu den Azure Web Apps (dev & production)
+- Screenshot der Azure DevOps build/Test/Deploy Pipeline incl.  erfolgreicher und nicht erfolgreicher Deployments
+- Screenshot der Azure DevOps Release Pipeline
+- Dokumentation wie die Releases freigegeben werden
+
+Abgabefrist: `17.11.2023`
+    

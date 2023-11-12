@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => res.json({info: 'Smart Home App'}));
 
 app.get('/getVoltage', (req, res) => {
     res.send('3,3V');

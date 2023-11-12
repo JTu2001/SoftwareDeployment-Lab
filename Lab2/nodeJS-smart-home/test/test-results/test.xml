@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.044" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2023-11-12T18:15:27" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Express App" timestamp="2023-11-12T18:15:27" tests="2" file="C:\Users\josip\Desktop\WebApp\SmartHomeWebApp\test\app.test.js" time="0.043" failures="1">
+    <testcase name="Express App Should return &quot;3,3V&quot; when &quot;/getVoltage&quot; is called" time="0.028" classname="Should return &quot;3,3V&quot; when &quot;/getVoltage&quot; is called">
+    </testcase>
+    <testcase name="Express App Should return &quot;25,5°C&quot; when &quot;/getTemperature&quot; is called" time="0.010" classname="Should return &quot;25,5°C&quot; when &quot;/getTemperature&quot; is called">
+      <failure message="expected &apos;28,5°C&apos; to equal &apos;25,5°C&apos;" type="AssertionError"><![CDATA[AssertionError: expected '28,5°C' to equal '25,5°C'
+    at C:\Users\josip\Desktop\WebApp\SmartHomeWebApp\test\app.test.js:23:34
+    at Request.callback (node_modules\superagent\lib\node\index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules\superagent\lib\node\index.js:1070:18)
+    at IncomingMessage.emit (node:events:527:35)
+    at endReadableNT (node:internal/streams/readable:1409:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+      + expected - actual
+
+      -28,5°C
+      +25,5°C
+      ]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

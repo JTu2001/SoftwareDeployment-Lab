@@ -1,18 +1,33 @@
 {
-  "name": "nodejs-smart-home",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
     "express": "^4.18.2",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "node": "^21.0.0"
+  },
+  "name": "smarthomewebapp",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "mocha test --reporter mocha-junit-reporter --reporter-options mochaFile=./test/test-results/test.xml",
+    "deploy": "webpack --mode production && deploy-to-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JTu2001/SmartHomeWebApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JTu2001/SmartHomeWebApp/issues"
+  },
+  "homepage": "https://github.com/JTu2001/SmartHomeWebApp#readme",
+  "devDependencies": {
+    "mocha-junit-reporter": "^2.2.1",
+    "webpack-cli": "^5.1.4"
   }
 }

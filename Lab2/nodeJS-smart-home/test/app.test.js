@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../app');
+const app = require('..');
 
 chai.use(chaiHttp);
 
@@ -15,12 +15,12 @@ describe('Express App', function () {
       });
   });
 
-  it('Should return "28,5°C" when "/getTemperature" is called', function (done) {
+  it('Should return "25,5°C" when "/getTemperature" is called', function (done) {
     chai.request(app)
       .get('/getTemperature')
       .end((err, res) => {
         chai.expect(res).to.have.status(200);
-        chai.expect(res.text).to.equal('28,5°C');
+        chai.expect(res.text).to.equal('25,5°C');
         done();
       });
   });
