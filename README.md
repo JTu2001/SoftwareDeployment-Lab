@@ -19,4 +19,18 @@ Links zu einem Git Repo mit folgendem Inhalt im Ordner Lab2:
 - Dokumentation wie die Releases freigegeben werden
 
 Abgabefrist: `17.11.2023`
-    
+
+## Übung 3 - Docker
+Setzen Sie die Software „Wordpress“ mit externer MySQL DB in 2 Containern auf. Diese Aufgabe besteht aus 2 Teilen. In den Teilen wird jeweils die gleiche Software mittels container zu Verfügung gestellt, wobei die container in Teil 2 selbst zu erstellen sind.
+
+### Teil 1
+Erstellung eines Docker-Compose files welche Wordpress und MySQL images verwendet um eine Wordpress Container infrastruktur aufzusetzen.
+
+### Teil 2 
+Erstellung eigener Images auf basis von debian für eine Wordpress container installation. 
+- Apache + PHP + Wordpress
+- MySQL
+
+Beide Images benötigen persistente Volumes. Wordpress um die hochgeladene dateien und die config zu verwalten, MySQL um die datenbank persistent zu halten.  Di beiden Container sollen mittels TCP/IP kommunizieren können. Beachten sie dafür die entsprechenden Ports.
+
+Abgabefrist: `01.12.2023`
