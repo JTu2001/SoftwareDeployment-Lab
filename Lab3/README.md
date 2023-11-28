@@ -239,7 +239,7 @@ docker build -t mysql-database .
 ```
 Hier eine kurze Beschreibung vom Befehl:
 - `docker build`: Builden des Images
-- `-t mysql_database`: Image-Tag (hier: mysql_database)
+- `-t mysql-database`: Image-Tag (hier: mysql_database)
 - `.` : Pfad zum `Dockerfile`. Achtung Verzeichnis! Der `.` repräsentiert das aktuelle Verzeichnis.
 
 <span style="color:lime"> Hinweis: Sofern sich das Dockerfile ändert miss dass Image neu gebaut werden. </span>
