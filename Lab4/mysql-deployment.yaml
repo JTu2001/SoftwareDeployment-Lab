@@ -1,0 +1,70 @@
+﻿# Service für MySQL
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  ports:
+    - port: 3306 # MySQL Port
+  selector:
+    app: wordpress
+    tier: mysql
+  clusterIP: None # Keine Cluster-IP-Adresse für interne Kommunikation
+
+---
+# PersistentVolumeClaim für MySQL
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce  # Lesen und Schreiben 
+  resources:
+    requests:
+      storage: 20Gi # 20GB Speicheranfordeung
+
+---
+# Deployment für MySQL
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: mysql
+  strategy:
+    type: Recreate  # Recreate Strategie
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: mysql
+    spec:
+      containers:
+        - image: mysql:5.6    # Image
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:       # Hier wird das Passwort aus den MySQL-Secret verwendet
+                  name: mysql-pass
+                  key: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql     # Pfad fürs Mounting
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
