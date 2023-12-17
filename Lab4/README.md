@@ -43,6 +43,11 @@ Hier eine kurze Beschreibung vom Command:
 - `--node-count 2`: Bestimmt die Anzahl der Nodes im Cluster
 - `--generate-ssh-keys`: Zur generierung des SSH-Keys, für Zugriff auf Cluster.
 
+<div align="center">
+  <img width="60%" src="md-images/MyAKSCluster.png">
+</div>
+
+
 Nachdem der Cluster erstellt wurde kann auf den Cluster zugegriffen werden:
 ```
 az aks get-credentials --resource-group "Lab4" --name MeinAKSCluster
