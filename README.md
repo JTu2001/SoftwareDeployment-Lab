@@ -34,3 +34,9 @@ Erstellung eigener Images auf basis von debian für eine Wordpress container ins
 Beide Images benötigen persistente Volumes. Wordpress um die hochgeladene dateien und die config zu verwalten, MySQL um die datenbank persistent zu halten.  Di beiden Container sollen mittels TCP/IP kommunizieren können. Beachten sie dafür die entsprechenden Ports.
 
 Abgabefrist: `01.12.2023`
+
+## Übung 4 -  Azure Kubernetes Service (AKS) 
+Aufestezen und Konfiguration eines AKS in Azure. Konfiguration und deplyoment von Wordpress incl. MySQL in dem AKS cluster. 
+
+
+Abgabefrist: `21.12.2023`
