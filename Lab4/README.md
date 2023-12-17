@@ -5,10 +5,10 @@
     - [2.1.1. Erstellung der Ressourcengruppe](#211-erstellung-der-ressourcengruppe)
     - [2.1.2. Erstellung des AKS](#212-erstellung-des-aks)
     - [2.1.3. Überprüfung](#213-überprüfung)
-    - [Löschvorgang](#löschvorgang)
+    - [2.1.4. Löschvorgang](#214-löschvorgang)
   - [2.2. Konfiguration \& Deployment von Wordpress incl. MySQL in AKS cluster](#22-konfiguration--deployment-von-wordpress-incl-mysql-in-aks-cluster)
     - [2.2.1. Konfiguration \& Deployment von MySQL](#221-konfiguration--deployment-von-mysql)
-    - [Konfiguration \& Deployment von Wordpress](#konfiguration--deployment-von-wordpress)
+    - [2.2.2. Konfiguration \& Deployment von Wordpress](#222-konfiguration--deployment-von-wordpress)
 - [3. Quellen](#3-quellen)
 
 
@@ -62,7 +62,7 @@ Und für eine Liste mit allen Deployments:
 kubectl get deployment
 ```
 
-### Löschvorgang
+### 2.1.4. Löschvorgang
 Um jeweils die `deployments`, `services` und `pods` zu löschen sind folgende Befehle zu verwenden: 
 ```
 kubectl delete deployments --all
@@ -190,7 +190,7 @@ Für Services:
 kubectl get services
 ```
 
-### Konfiguration & Deployment von Wordpress
+### 2.2.2. Konfiguration & Deployment von Wordpress
 Auch wie im vorherigen Abschnitt wird hier ein YAML-File definiert, mit dem Namen `wordpress-deployment.yaml`:
 ```YAML
 apiVersion: v1
